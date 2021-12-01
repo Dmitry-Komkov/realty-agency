@@ -1,13 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Gatsby Tailwind+Emotion Starter`,
+    description: `A simple starter to get up and developing quickly with Gatsby, Tailwind CSS and Emotion`,
+    author: `@dmitrykomkov`,
+    siteUrl: `https://ascentweb.ru`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-emotion`
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -1,10 +1,11 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-tailwind-emotion-starter",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple starter to get up and developing quickly with Gatsby, Tailwind CSS and Emotion",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Dmitry Komkov <dmitry.komkov1423@gmail.com>",
   "dependencies": {
+    "autoprefixer": "^10.4.0",
     "gatsby": "^4.2.0",
     "gatsby-plugin-gatsby-cloud": "^4.2.0",
     "gatsby-plugin-image": "^2.2.0",
@@ -17,10 +18,15 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
-    "prettier": "^2.4.1"
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "gatsby-plugin-emotion": "^7.3.0",
+    "prettier": "^2.4.1",
+    "twin.macro": "^2.8.1"
   },
   "keywords": [
     "gatsby"
