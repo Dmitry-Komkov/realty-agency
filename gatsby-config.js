@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Tailwind+Emotion Starter`,
-    description: `A simple starter to get up and developing quickly with Gatsby, Tailwind CSS and Emotion`,
+    title: `Агенство недвижимости "Фаворит"`,
+    description: `A Realty Agency website developed with Gatsby, Tailwind CSS and Emotion`,
     author: `@dmitrykomkov`,
     siteUrl: `https://ascentweb.ru`,
   },

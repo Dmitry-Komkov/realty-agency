@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-tailwind-emotion-starter",
+  "name": "realty-agency-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby, Tailwind CSS and Emotion",
+  "description": "A Realty Agency website developed with Gatsby, Tailwind CSS and Emotion",
   "version": "0.1.0",
   "author": "Dmitry Komkov <dmitry.komkov1423@gmail.com>",
   "dependencies": {
@@ -29,7 +29,9 @@
     "twin.macro": "^2.8.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "tailwindcss",
+    "emotion"
   ],
   "license": "0BSD",
   "scripts": {
@@ -43,9 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/Dmitry-Komkov/realty-agency.git"
   }
 }
