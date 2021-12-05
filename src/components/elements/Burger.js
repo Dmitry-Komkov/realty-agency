@@ -4,6 +4,7 @@ import tw, { styled, css } from 'twin.macro';
 const Button = styled.button(() => [
   tw`
     w-[30px] h-[25px] flex flex-col justify-between
+    lg:hidden
   `,
   css`
     span { ${tw`w-full h-[4px] bg-secondary rounded-sm`} }

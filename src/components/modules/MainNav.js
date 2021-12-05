@@ -5,11 +5,12 @@ import { nanoid } from 'nanoid'
 
 const Box = styled.div(({ menu }) => [
   tw`fixed bg-white transform -translate-x-full top-0 left-0 shadow py-8 px-4 w-[70vw] h-full duration-500 ease-in-out`,
-  menu && tw`translate-x-0`
+  tw`lg:relative lg:translate-x-0 lg:shadow-none lg:w-auto lg:p-0`,
+  menu && tw`translate-x-0`,
 ])
 
 const CloseButton = styled.button(() => [
-  tw`w-[30px] h-[30px] absolute top-2 right-2`,
+  tw`w-[30px] h-[30px] absolute top-2 right-2 lg:hidden`,
   css`
     span {
       ${tw`w-full h-[3px] bg-textDark absolute top-1/2 left-0 transform -translate-y-1/2 rotate-45 rounded-sm`}
@@ -22,8 +23,11 @@ const CloseButton = styled.button(() => [
 ])
 
 const Nav = styled.nav(() => [
-  tw`flex flex-col gap-4`
+  tw`flex flex-col gap-4 text-lg`,
+  tw`lg:flex-row lg:gap-10`
 ])
+
+const StyledLink = tw(Link)`transition duration-300 hover:text-secondary`;
 
 const links = [
   {id: nanoid(), url: '#!', text: 'Главная'},
@@ -49,7 +53,7 @@ const MainNav = ({ menu, toggleMenu }) => {
         {
           links.map(link => {
             return (
-              <Link key={link.id} to={link.url}>{link.text}</Link>
+              <StyledLink key={link.id} to={link.url}>{link.text}</StyledLink>
             )
           })
         }

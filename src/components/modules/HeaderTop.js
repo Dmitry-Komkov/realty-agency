@@ -13,19 +13,21 @@ const links = [
 
 const Links = styled.nav(
   css`
-    a:not(:last-child) {${tw`pr-3`}}
+    a:not(:last-child) {${tw`pr-3 lg:pr-10`}}
   `
 )
 
+const StyledLink = tw(Link)`transition duration-300 hover:text-secondary`;
+
 const HeaderTop = () => {
   return (
-    <div tw="bg-primaryDark text-white text-xs py-3">
+    <div tw="bg-primaryDark text-white text-xs font-light py-3 lg:text-lg">
       <Container>
         <Links>
           {
             links.map((link) => {
               return (
-                <Link key={link.id} to={link.url}>{link.text}</Link>
+                <StyledLink key={link.id} to={link.url}>{link.text}</StyledLink>
               )
             })
           }
