@@ -12,6 +12,14 @@ module.exports = {
       resolve: `gatsby-plugin-emotion`
     },
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Roboto', 'Roboto']
+        }
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

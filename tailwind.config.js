@@ -2,8 +2,20 @@ module.exports = {
   purge: [],
   darkMode: false,
   theme: {
-    extend: {
-      colors: {},
+    container: {
+      center: true,
+    },
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      primary: '#0081fe',
+      primaryDarker: '#0076e5',
+      primaryDark: '#0a142f',
+      secondary: '#ff3f01',
+      secondaryDarker: '#e23400',
+      white: '#ffffff',
+      black: '#000000',
+      textDark: '#1f2937',
     },
     screens: {
       sm: '480px',
@@ -12,8 +24,10 @@ module.exports = {
       xl: '1440px',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+      'sans': ['Roboto', 'sans-serif'],
+      'serif': ['Roboto', 'serif'],
+      'body': ['Roboto', 'sans-serif'],
+      'display': ['Roboto', 'sans-serif'],
     },
     extend: {
       spacing: {
