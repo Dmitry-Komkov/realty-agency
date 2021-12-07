@@ -7,10 +7,10 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { GlobalStyles } from 'twin.macro'
 
 import Header from "../modules/Header"
 import Footer from "../modules/Footer"
+import GlobalStyles from '../../styles/GlobalStyles';
 
 const Default = ({ children }) => {
 
@@ -18,9 +18,7 @@ const Default = ({ children }) => {
     <>
       <GlobalStyles />
       <Header />
-      <div>
-        <main>{children}</main>
-      </div>
+      <main>{children}</main>
       <Footer />
     </>
   )

@@ -34,7 +34,7 @@ const HeaderMid = () => {
       <Container>
         <Box>
           <ImageBox>
-            <StaticImage src="../../images/logo.png" alt="A dinosaur" />
+            <StaticImage src="../../images/logo.png" alt="АН Фаворит" />
           </ImageBox>
           <Contacts>
             <div>
