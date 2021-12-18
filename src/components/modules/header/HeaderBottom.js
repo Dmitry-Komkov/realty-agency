@@ -1,8 +1,9 @@
 import React from 'react'
-import Button from '../elements/Button';
-import Container from '../elements/Container';
 import tw, { styled } from 'twin.macro';
-import Burger from '../elements/Burger';
+
+import Button from '../../elements/Button'
+import Container from '../../elements/Container';
+import Burger from '../../elements/Burger';
 import MainNav from './MainNav';
 
 const Wrapper = styled.div(() => [
@@ -23,18 +24,18 @@ const ButtonContainer = styled.div(() => [
   tw`text-right`
 ])
 
-const HeaderBottom = ({ toggleMenu, menu }) => {
+const HeaderBottom = () => {
 
   return (
     <Wrapper>
       <Container>
         <Box>
           <NavBox>
-            <Burger toggleMenu={toggleMenu} menu={menu} />
-            <MainNav toggleMenu={toggleMenu} menu={menu} />
+            <Burger />
+            <MainNav />
           </NavBox>
           <ButtonContainer>
-            <Button color="secondary">Мы в WhatsApp</Button>
+            <Button color="secondary" >Мы в WhatsApp</Button>
           </ButtonContainer>
         </Box>
       </Container>

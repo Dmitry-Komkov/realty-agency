@@ -8,7 +8,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 
-import Header from "../modules/Header"
+import Header from "../modules/header/Header"
 import Footer from "../modules/Footer"
 import GlobalStyles from '../../styles/GlobalStyles';
 

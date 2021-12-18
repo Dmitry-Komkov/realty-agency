@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from '../elements/Container'
+import Container from '../../elements/Container'
 import tw, { styled, css } from 'twin.macro'
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -34,7 +34,7 @@ const HeaderMid = () => {
       <Container>
         <Box>
           <ImageBox>
-            <StaticImage src="../../images/logo.png" alt="АН Фаворит" />
+            <StaticImage src="../../../images/logo.png" alt="АН Фаворит" />
           </ImageBox>
           <Contacts>
             <div>

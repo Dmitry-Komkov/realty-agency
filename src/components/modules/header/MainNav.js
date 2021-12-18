@@ -2,9 +2,11 @@ import { Link } from 'gatsby';
 import React from 'react'
 import tw, { styled, css } from 'twin.macro';
 import { nanoid } from 'nanoid'
+import { useDispatch, useSelector } from 'react-redux'
+import { showMenu } from '../../../redux/slices/headerMenuSlice'
 
 const Box = styled.div(({ menu }) => [
-  tw`fixed bg-white transform -translate-x-full top-0 left-0 shadow py-8 px-4 w-[70vw] h-full duration-500 ease-in-out`,
+  tw`fixed z-50 bg-white transform -translate-x-full top-0 left-0 shadow py-8 px-4 w-[70vw] h-full duration-500 ease-in-out`,
   tw`lg:relative lg:translate-x-0 lg:shadow-none lg:w-auto lg:p-0`,
   menu && tw`translate-x-0`,
 ])
@@ -38,14 +40,13 @@ const links = [
   {id: nanoid(), url: '#!', text: 'Дачи'},
 ]
 
-const menuHandler = (handler, menu) => {
-  handler(!menu);
-}
+const MainNav = () => {
+  const state = useSelector(state => state.menu.show)
+  const dispatch = useDispatch()
 
-const MainNav = ({ menu, toggleMenu }) => {
   return (
-    <Box menu={menu}>
-      <CloseButton type="button" onClick={() => menuHandler(toggleMenu, menu)}>
+    <Box menu={state}>
+      <CloseButton type="button" onClick={() => dispatch(showMenu())}>
         <span></span>
         <span></span>
       </CloseButton>

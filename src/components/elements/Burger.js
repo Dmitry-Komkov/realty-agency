@@ -1,5 +1,7 @@
 import React from 'react'
 import tw, { styled, css } from 'twin.macro';
+import { useDispatch } from 'react-redux'
+import { showMenu } from '../../redux/slices/headerMenuSlice'
 
 const Button = styled.button(() => [
   tw`
@@ -11,13 +13,11 @@ const Button = styled.button(() => [
   `
 ])
 
-const clickHandler = (toggleMenu, menu) => {
-  toggleMenu(!menu)
-}
+const Burger = () => {
+  const dispatch = useDispatch()
 
-const Burger = ({ toggleMenu, menu }) => {
   return (
-    <Button onClick={() => clickHandler(toggleMenu, menu)}>
+    <Button onClick={() => dispatch(showMenu())}>
       <span></span>
       <span></span>
       <span></span>

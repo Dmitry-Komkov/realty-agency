@@ -1,7 +1,7 @@
 import React from 'react'
 import tw, { styled, css } from 'twin.macro'
 import { Link } from "gatsby"
-import Container from '../elements/Container'
+import Container from '../../elements/Container'
 import { nanoid } from 'nanoid'
 
 const links = [
