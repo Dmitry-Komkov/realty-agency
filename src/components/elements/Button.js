@@ -9,7 +9,7 @@ const buttonVariantsColor = {
 const buttonVariantsSize = {
   small: tw`text-xs px-3.5 py-0.5`,
   regular: tw`text-base px-6 py-1.5`,
-  large: tw`text-xl px-10 py-2`
+  large: tw`text-xl px-10 py-3.5`
 }
 
 const buttonVariantsType = {
@@ -17,11 +17,12 @@ const buttonVariantsType = {
   filled: tw``,
 }
 
-const Button = styled.button(({color, size, type}) => [
-  tw`rounded transition duration-300 ease-in-out`,
+const Button = styled.button(({color, size, type, ...other}) => [
+  tw`rounded-lg transition duration-300 ease-in-out`,
+  {...other},
   buttonVariantsColor[color],
   buttonVariantsSize[size],
-  buttonVariantsType[type]
+  buttonVariantsType[type],
 ])
 
 Button.defaultProps = {

@@ -3,8 +3,8 @@ import tw, { styled } from 'twin.macro';
 import { PropTypes } from 'prop-types';
 
 const variants = {
-  'h1': tw`text-3xl font-semibold`,
-  'h2': tw`text-2xl font-medium`,
+  'h1': tw`text-3xl font-semibold lg:text-5xl`,
+  'h2': tw`text-2xl font-medium lg:text-4xl`,
   'h3': tw`text-xl font-medium`,
   'h4': tw`text-lg font-medium`,
   'h5': tw`text-2xl font-medium`,

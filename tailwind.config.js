@@ -16,7 +16,8 @@ module.exports = {
       white: '#ffffff',
       black: '#000000',
       textDark: '#1f2937',
-      grayLight: '#ededed',
+      grayLight: '#e5e5e5',
+      grayLighter: '#ededed',
       grayLightest: "#f4f5f9"
     },
     screens: {
