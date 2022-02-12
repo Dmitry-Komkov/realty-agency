@@ -7,7 +7,7 @@ import { showMenu } from '../../../redux/slices/headerMenuSlice'
 
 const Box = styled.div(({ menu }) => [
   tw`fixed z-50 bg-white transform -translate-x-full top-0 left-0 shadow py-8 px-4 w-[70vw] h-full duration-500 ease-in-out`,
-  tw`lg:relative lg:translate-x-0 lg:shadow-none lg:w-auto lg:p-0`,
+  tw`lg:relative lg:translate-x-0 lg:shadow-none lg:w-auto lg:p-0 lg:bg-transparent`,
   menu && tw`translate-x-0`,
 ])
 

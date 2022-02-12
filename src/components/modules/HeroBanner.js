@@ -34,7 +34,7 @@ const HeroBanner = () => {
   return (
     <Wrapper>
       <StaticImage
-        src="../../images/content/hero-img.png"
+        src="../../assets/images/content/hero-img.png"
         alt="Баннер"
         layout="fullWidth"
         css={css`

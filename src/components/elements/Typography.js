@@ -14,7 +14,6 @@ const variants = {
 
 const aligns = {
   center: tw`text-center`,
-  left: tw`text-left`,
   right: tw`text-right`
 }
 
@@ -32,7 +31,6 @@ export default Typography
 Typography.defaultProps = {
   as: 'p',
   variant: 'body',
-  align: 'left'
 }
 
 Typography.propTypes = {

@@ -25,7 +25,7 @@ const EstateProject = () => {
   return (
     <Wrapper>
       <StaticImage
-        src="../../images/content/estates/test-estate.png"
+        src="../../assets/images/content/estates/test-estate.png"
         alt="Test"
       />
       <Body>

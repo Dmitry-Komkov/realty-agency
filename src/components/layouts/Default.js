@@ -9,8 +9,8 @@ import * as React from "react"
 import PropTypes from "prop-types"
 
 import Header from "../modules/header/Header"
-import Footer from "../modules/Footer"
 import GlobalStyles from '../../styles/GlobalStyles';
+import Footer from '../modules/footer/Footer';
 
 const Default = ({ children }) => {
 
