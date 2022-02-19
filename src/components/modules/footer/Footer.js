@@ -2,8 +2,8 @@ import React from 'react'
 import { nanoid } from 'nanoid'
 import tw from 'twin.macro'
 import Container from '../../elements/Container'
-import Menu from '../navigation/menu'
-import Typography from '../../elements/Typography';
+import Menu from '../navigation/Menu'
+import Typography from '../../elements/Typography'
 import Button from '../../elements/Button'
 import InstagramLogo from '../../../assets/icons/instagram-logo.com.svg'
 import { Link } from 'gatsby';
