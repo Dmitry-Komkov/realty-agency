@@ -79,7 +79,7 @@ const OurTeam = () => {
             {
               staff.map(expert => {
                 const { name, position, experience, education, photo } = expert
-                const imgData = getImage(photo[0].localFile)
+                const imgData = getImage(photo.localFile)
                 const avatar =  <GatsbyImage image={imgData} alt={name} />
 
                 return (

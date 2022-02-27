@@ -9,7 +9,7 @@ import Services from '../modules/Services'
 
 const HomePage = () => {
   return (
-    <div>
+    <main>
       <HeroBanner />
       <Services />
       <Offers />
@@ -17,7 +17,7 @@ const HomePage = () => {
       <FreeConsult />
       <OurTeam />
       <AboutUs />
-    </div>
+    </main>
   )
 }
 

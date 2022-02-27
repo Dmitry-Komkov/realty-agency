@@ -2,6 +2,7 @@ import React from 'react'
 import Container from '../../elements/Container'
 import tw, { styled, css } from 'twin.macro'
 import { StaticImage } from "gatsby-plugin-image"
+import { Link } from 'gatsby'
 
 const Box = styled.div(() => [
   tw`flex items-center justify-between gap-x-3
@@ -34,7 +35,9 @@ const HeaderMid = () => {
       <Container>
         <Box>
           <ImageBox>
-            <StaticImage src="../../../assets/images/logo.png" alt="АН Фаворит" />
+            <Link to="/">
+              <StaticImage src="../../../assets/images/logo.png" alt="АН Фаворит" />
+            </Link>
           </ImageBox>
           <Contacts>
             <div>

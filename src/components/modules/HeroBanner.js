@@ -3,6 +3,7 @@ import Container from '../elements/Container'
 import { StaticImage } from 'gatsby-plugin-image';
 import tw, { styled, css } from 'twin.macro';
 import Button from '../elements/Button';
+import Typography from '../elements/Typography';
 
 const Wrapper = styled.section(() => [
   tw`grid`
@@ -16,12 +17,7 @@ const Box = styled.div(() => [
 ])
 
 const Content = styled.div(() => [
-  tw``,
-  css`
-    h2 {
-      ${tw`text-xl font-medium uppercase`}
-    }
-  `
+  tw``
 ])
 
 const Col = tw.div`py-6`
@@ -46,7 +42,7 @@ const HeroBanner = () => {
         <Container>
           <Content>
             <Col>
-              <h2>Команда профессионалов в сфере недвижимости</h2>
+              <Typography as="h2" tw="uppercase font-medium text-xl md:text-2xl">Команда профессионалов в сфере недвижимости</Typography>
               <Description>
                 <p>Более 12 лет помогаем людям совершать сделки с недвижимостью.</p>
                 <List>

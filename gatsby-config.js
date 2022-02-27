@@ -43,7 +43,9 @@ module.exports = {
       options: {
         apiURL: process.env.STRAPI_URL || `http://localhost:1337`,
         collectionTypes: [
-          `experts`
+          `experts`,
+          `categories`,
+          `realties`
         ],
         queryLimit: 1000,
       },
