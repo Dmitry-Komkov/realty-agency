@@ -19,6 +19,7 @@ const Offers = () => {
           square
           price
           strapiId
+          id
           category {
             slug
           }

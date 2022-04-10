@@ -46,7 +46,7 @@ const OurTeam = () => {
   const staff = data.allStrapiExperts.nodes
 
   return (
-    <Section>
+    <Section id="team">
       <Container>
         <div>
           <Typography as="h2" variant="h2" align="center" tw="mb-4 uppercase">Наши специалисты</Typography>

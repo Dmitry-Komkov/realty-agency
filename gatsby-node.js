@@ -1,8 +1,13 @@
-const path = require('path')
+const path = require("path")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-  const realtyTemplate = path.resolve(`./src/components/templates/RealtyPage.js`)
+  const realtyTemplate = path.resolve(
+    `./src/components/templates/SingleRealty.js`
+  )
+  const categoryTemplate = path.resolve(
+    `./src/components/templates/CategoryPage.js`
+  )
 
   const result = await graphql(
     `
@@ -10,10 +15,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         allStrapiRealties {
           nodes {
             strapiId
+            id
             category {
               slug
               name
             }
+          }
+        }
+        allStrapiCategories {
+          nodes {
+            id
+            slug
+            name
+            strapiId
           }
         }
       }
@@ -24,7 +38,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
-  
+
   result.data.allStrapiRealties.nodes.forEach(realty => {
     const path = `/realty/${realty.category.slug}/${realty.strapiId}/`
     createPage({
@@ -32,6 +46,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: realtyTemplate,
       context: {
         id: realty.strapiId,
+      },
+    })
+  })
+
+  result.data.allStrapiCategories.nodes.forEach(cat => {
+    const path = `/realty/${cat.slug}/`
+    createPage({
+      path,
+      component: categoryTemplate,
+      context: {
+        id: cat.strapiId,
+        slug: cat.slug,
       }
     })
   })

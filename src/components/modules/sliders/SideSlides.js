@@ -21,6 +21,11 @@ const Wrapper = styled.div(() => [
     .mySwiper .swiper-slide {
       opacity: 0.4;
     }
+
+    .mySwiper .swiper-slide > * {
+      width: 100%;
+      height: 100%;
+    }
     
     .mySwiper .swiper-slide-thumb-active {
       opacity: 1;
@@ -35,15 +40,15 @@ const Wrapper = styled.div(() => [
   `
 ])
 const ThumbSwiper = styled.div(() => [
-  tw`w-[100px] md:w-[300px]`
+  tw`w-[80px] md:w-[200px]`
 ])
 const MainSwiper = styled.div(() => [
-  tw`w-[calc(100% - 100px)] md:w-[calc(100% - 300px)]`
+  tw`w-[calc(100% - 80px)] md:w-[calc(100% - 200px)]`
 ])
 
 const SideSlides = ({photos, name}) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  
+
   return (
     <Wrapper>
       <ThumbSwiper>

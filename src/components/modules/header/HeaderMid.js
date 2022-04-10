@@ -1,8 +1,8 @@
 import React from 'react'
-import Container from '../../elements/Container'
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import tw, { styled, css } from 'twin.macro'
 import { StaticImage } from "gatsby-plugin-image"
-import { Link } from 'gatsby'
+import Container from '../../elements/Container'
 
 const Box = styled.div(() => [
   tw`flex items-center justify-between gap-x-3
@@ -30,6 +30,18 @@ const Contacts = styled.div(() => [
 ])
 
 const HeaderMid = () => {
+  const data = useStaticQuery(graphql`
+    query SiteData {
+      allStrapiGeneral {
+        nodes {
+          phone
+        }
+      }
+    }
+  `)
+
+  const {phone} = data.allStrapiGeneral.nodes[0]
+
   return (
     <div tw="bg-primary py-3 text-white lg:py-5">
       <Container>
@@ -41,7 +53,7 @@ const HeaderMid = () => {
           </ImageBox>
           <Contacts>
             <div>
-              <a href="#!">+7 (918) 999-99-99</a>
+              <a href={`tel:${phone}`}>{phone}</a>
             </div>
             <div>
               <p>

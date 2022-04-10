@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import NumberFormat from 'react-number-format';
 import { Controller, useForm } from "react-hook-form";
 import tw, { styled, css } from 'twin.macro';
@@ -19,6 +19,13 @@ const StyledInput = tw.input`bg-white border border-grayLight p-4 rounded-lg w-f
 const StyledNumberInput = tw(NumberFormat)`bg-white border border-grayLight p-4 rounded-lg w-full`
 
 const OneLineForm = () => {
+  const [formState, setFormState] = useState({
+    successForm: false,
+    errorForm: false
+  });
+
+  const [submittedData, setSubmittedData] = useState({});
+
   const { control, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
 

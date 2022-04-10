@@ -47,6 +47,7 @@ module.exports = {
           `categories`,
           `realties`
         ],
+        singleTypes: [`general`],
         queryLimit: 1000,
       },
     },

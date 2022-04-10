@@ -31,8 +31,10 @@ const DescriptionBox = tw.div`mb-6`
 const ButtonBox = tw.div`text-center`
 const StyledLink = tw(Link)`bg-primary text-white border-primary hover:bg-primaryDarker hover:border-primaryDarker rounded-lg transition duration-300 ease-in-out text-base px-6 py-1.5`
 
-const EstateProject = ({data}) => {
+const EstateProject = ({data, categorySlug}) => {
   const {name, address, level, category, square, photos, price, strapiId} = data
+
+  const slug = category ? category.slug : categorySlug
 
   const imgData = getImage(photos[0].localFile)
 
@@ -56,7 +58,7 @@ const EstateProject = ({data}) => {
           <Typography as="p" align="center">{address}</Typography>
         </DescriptionBox>
         <ButtonBox>
-          <StyledLink to={`/realty/${category.slug}/${strapiId}`}>
+          <StyledLink to={`/realty/${slug}/${strapiId}`}>
             Подробнее
           </StyledLink>
         </ButtonBox>

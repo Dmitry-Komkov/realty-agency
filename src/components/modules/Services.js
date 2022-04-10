@@ -61,7 +61,7 @@ const Services = () => {
         }
       }
     `
-  ) 
+  )
 
   const cardsData = [
     {
@@ -88,7 +88,7 @@ const Services = () => {
 
   images.edges.forEach((image, idx) => {
     const data = getImage(image.node)
-    cardsData[idx].image = 
+    cardsData[idx].image =
     <GatsbyImage
       key={image.node.id}
       image={data}
@@ -97,7 +97,7 @@ const Services = () => {
   })
 
   return (
-    <Section>
+    <Section id="services">
       <Container>
         <div>
           <Typography as="h2" variant="h2" align="center" tw="mb-4 uppercase">Наши услуги</Typography>

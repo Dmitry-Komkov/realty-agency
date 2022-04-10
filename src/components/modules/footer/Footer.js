@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, graphql, useStaticQuery } from 'gatsby';
 import { nanoid } from 'nanoid'
 import tw from 'twin.macro'
 import Container from '../../elements/Container'
@@ -6,7 +7,6 @@ import Menu from '../navigation/Menu'
 import Typography from '../../elements/Typography'
 import Button from '../../elements/Button'
 import InstagramLogo from '../../../assets/icons/instagram-logo.com.svg'
-import { Link } from 'gatsby';
 
 const Wrapper = tw.footer`bg-primaryDark text-white py-6 text-sm lg:text-base`
 const FooterTop = tw.div`
@@ -53,25 +53,43 @@ const StyledLink = tw(Link)`lg:text-base`
 const DevelopedBox = tw.div`text-right`
 
 const links = [
-  {id: nanoid(), url: '#!', text: 'Каталог'},
-  {id: nanoid(), url: '#!', text: 'Квартиры'},
-  {id: nanoid(), url: '#!', text: 'Дома'},
-  {id: nanoid(), url: '#!', text: 'Участки'},
-  {id: nanoid(), url: '#!', text: 'Дачи'},
+  {id: nanoid(), url: '/realty', text: 'Каталог'},
 ]
 
 const Footer = () => {
 
+  const data = useStaticQuery(graphql`
+    query SiteDataFooter {
+      allStrapiGeneral {
+        nodes {
+          phone
+          mail
+          address
+        }
+      }
+    }
+  `)
+
+  const {phone, mail, address} = data.allStrapiGeneral.nodes[0]
+
+  const extraLinks = [
+    {
+      name: 'Каталог',
+      url: '/realty',
+      id: nanoid(),
+    },
+  ]
+
   return (
-    <Wrapper>
+    <Wrapper id="footer">
       <Container>
         <FooterTop>
           <MenuBox>
-            <Menu links={links} />
+            <Menu extraLinks={extraLinks} />
           </MenuBox>
           <ContactsBox>
-            <a href="tel:+7 (499) 000-00-00" className="contact--link contact--link-phone" tw="font-bold lg:text-2xl">+7 (499) 000-00-00</a>
-            <a href="mailto:info@фаворит-чехов.рф" className="contact--link contact--link-phone" tw="text-sm font-bold lg:text-xl">info@фаворит-чехов.рф</a>
+            <a href={`tel:${phone}`} className="contact--link contact--link-phone" tw="font-bold lg:text-2xl">{phone}</a>
+            <a href={`mailto:${mail}`} className="contact--link contact--link-phone" tw="text-sm font-bold lg:text-xl">{mail}</a>
           </ContactsBox>
         </FooterTop>
         <FooterMiddle>
@@ -83,7 +101,7 @@ const Footer = () => {
             </InfoCol>
             <InfoCol>
               <Typography>
-                Наш офис:<br/>МО, г. Чехов, ул. Почтовая, д. 8, офис 104
+                Наш офис:<br/>{address}
               </Typography>
             </InfoCol>
           </InfoBox>

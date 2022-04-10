@@ -1,5 +1,5 @@
-import { Link } from 'gatsby';
 import React from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import tw, { styled, css } from 'twin.macro';
 import { nanoid } from 'nanoid'
 import { useDispatch, useSelector } from 'react-redux'
@@ -31,18 +31,28 @@ const Nav = styled.nav(() => [
 
 const StyledLink = tw(Link)`transition duration-300 hover:text-secondary`;
 
-const links = [
-  {id: nanoid(), url: '#!', text: 'Главная'},
-  {id: nanoid(), url: '#!', text: 'Каталог'},
-  {id: nanoid(), url: '#!', text: 'Квартиры'},
-  {id: nanoid(), url: '#!', text: 'Дома'},
-  {id: nanoid(), url: '#!', text: 'Участки'},
-  {id: nanoid(), url: '#!', text: 'Дачи'},
+const mainLinks = [
+  {id: nanoid(), url: '/', text: 'Главная'},
+  {id: nanoid(), url: '/realty', text: 'Каталог'},
 ]
 
 const MainNav = () => {
   const state = useSelector(state => state.menu.show)
   const dispatch = useDispatch()
+
+  const categoriesQuery = useStaticQuery(graphql`
+    query Categories {
+      allStrapiCategories {
+        nodes {
+          name
+          slug
+          id
+        }
+      }
+    }
+  `)
+
+  const categories = categoriesQuery.allStrapiCategories.nodes
 
   return (
     <Box menu={state}>
@@ -52,9 +62,16 @@ const MainNav = () => {
       </CloseButton>
       <Nav>
         {
-          links.map(link => {
+          mainLinks.map(link => {
             return (
               <StyledLink key={link.id} to={link.url}>{link.text}</StyledLink>
+            )
+          })
+        }
+        {
+          categories.map(link => {
+            return (
+              <StyledLink key={link.id} to={`/realty/${link.slug}`}>{link.name}</StyledLink>
             )
           })
         }
