@@ -9,9 +9,11 @@ import Seo from '../seo';
 const SingleRealty = ({data}) => {
   const { realty } = data
 
+  const description = `Купить ${realty.name}. Покупка и продажа ${realty.category.name} в Чехове и Чеховском районе. Команда экспертов. Юридическое сопровождение сделки`
+
   return (
     <Default>
-      <Seo title="Test" />
+      <Seo title={realty.name} description={description} />
       <main>
         <RealtyInfo info={realty} />
         <Offers />

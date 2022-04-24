@@ -36,9 +36,11 @@ const CategoryPage = ({ data }) => {
       break
   }
 
+  const description = `Покупка ${name} в Чехове и Чеховской районе. Выгодные условия сделки и полное юридическое сопровождение. Опытные эксперты.`
+
   return (
     <Default>
-      <Seo title="Test" />
+      <Seo title={`Каталог ${name} в Чехове и Чеховской районе`} description={description} />
       <main>
         <Wrapper>
           <Container>

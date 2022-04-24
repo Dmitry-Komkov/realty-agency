@@ -22,7 +22,7 @@ const ImageBox = tw.div`
 
 const AboutUs = () => {
   return (
-    <StyledSection>
+    <StyledSection id="about">
       <Container>
         <Box>
           <TitleBox className="content-box">

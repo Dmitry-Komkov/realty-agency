@@ -5,10 +5,10 @@ import Container from '../../elements/Container'
 import { nanoid } from 'nanoid'
 
 const links = [
-  {id: nanoid(), url: '#services', text: 'Услуги'},
-  {id: nanoid(), url: '#!', text: 'О нас'},
+  {id: nanoid(), url: '/#services', text: 'Услуги'},
+  {id: nanoid(), url: '/#about', text: 'О нас'},
   {id: nanoid(), url: '#footer', text: 'Контакты'},
-  {id: nanoid(), url: '#team', text: 'Команда'}
+  {id: nanoid(), url: '/#team', text: 'Команда'}
 ]
 
 const Links = styled.nav(

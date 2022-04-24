@@ -6,7 +6,7 @@ import HomePage from "../components/templates/HomePage"
 
 const IndexPage = () => (
   <Default>
-    <Seo title="Home" />
+    <Seo title="Главная" />
     <HomePage />
   </Default>
 )

@@ -4,10 +4,11 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Агенство недвижимости "Фаворит"`,
-    description: `A Realty Agency website developed with Gatsby, Tailwind CSS and Emotion`,
+    title: `Агенство недвижимости "ФАВОРИТ" - Чехов`,
+    description: `⭐⭐⭐⭐⭐Покупка и продажа квартир, домов, участков, аренда жилой и коммерческой недвижимости. Выплата до 90% рыночной стоимости. Команда экспертов. Юридическое сопровождение. Работаем в Чехове и Чеховском районе.`,
+    keywords: `агентство, недвижимость, агентство недвижимости, квартиры чехов, купить квартиру чехов, продать квартиру чехов, аренда квартир чехов, коммерческая недвижимость чехов, купить дом чехов, купить дачу чехов, купить участок чехов, купить недвижимость чехов, недвижимость чехов, нежилая недвижимость чехов, купить дом чеховский район, купить квартиру чеховский район, продать дом чеховский район, продать квартиру чеховский район, купить дачу чеховский район, продать дачу чеховский район, купить участок чеховский район, продать участок чеховский район`,
     author: `@dmitrykomkov`,
-    siteUrl: `https://ascentweb.ru`,
+    siteUrl: `https://favorit-chekhov.ru`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -72,7 +73,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
