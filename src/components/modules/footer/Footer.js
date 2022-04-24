@@ -52,10 +52,6 @@ const PolicyBox = tw.div`
 const StyledLink = tw(Link)`lg:text-base`
 const DevelopedBox = tw.div`text-right`
 
-const links = [
-  {id: nanoid(), url: '/realty', text: 'Каталог'},
-]
-
 const Footer = () => {
 
   const data = useStaticQuery(graphql`

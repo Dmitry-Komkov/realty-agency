@@ -47,7 +47,7 @@ const Offers = () => {
           {
             data.allStrapiRealties.nodes.map(project => {
               return (
-                <EstateProject data={project} key={project.photos[0].localFile.id} />
+                <EstateProject data={project} key={`${project.photos[0].localFile.id}-${project.strapiId}`} />
               )
             })
           }

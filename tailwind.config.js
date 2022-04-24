@@ -19,7 +19,9 @@ module.exports = {
       gray: '#848484',
       grayLight: '#e5e5e5',
       grayLighter: '#ededed',
-      grayLightest: "#f4f5f9"
+      grayLightest: "#f4f5f9",
+      success: "#2eb211",
+      error: "#d11515"
     },
     screens: {
       sm: '480px',
