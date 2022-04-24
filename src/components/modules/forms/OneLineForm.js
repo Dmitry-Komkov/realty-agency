@@ -44,7 +44,7 @@ const OneLineForm = () => {
     setSubmittedData(data)
 
     const body = JSON.stringify(data)
-    
+
     try {
       const response = await window
         .fetch(endpoints.form, {
