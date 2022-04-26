@@ -103,14 +103,19 @@ module.exports = {
               }
             }
         }`,
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.nodes.map(node => {
-            return {
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: `daily`,
-              priority: 0.9,
-            }
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({allSitePage: {nodes: allPages}}) => {
+          return allPages.map(page => {
+            return {...page}
           })
+        },
+        serialize: ({path}) => {
+          return {
+            url: path,
+            changefreq: `daily`,
+            priority: 0.9,
+          }
+        }
       },
     },
     {
