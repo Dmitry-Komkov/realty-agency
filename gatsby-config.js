@@ -128,21 +128,21 @@ module.exports = {
               {
                 userAgent: "*",
                 allow: "/",
-                disalow: ["/admin", "/public", "/static", "/page-data", "/?*"],
+                disallow: ["/admin", "/public", "/static", "/page-data", "/?*"],
               },
               {
                 userAgent: "Googlebot",
                 allow: "/",
-                disalow: ["/admin", "/public", "/static", "/page-data", "/?*"],
+                disallow: ["/admin", "/public", "/static", "/page-data", "/?*"],
               },
               {
                 userAgent: "Yandex",
                 allow: "/",
-                disalow: ["/admin", "/public", "/static", "/page-data", "/?*"],
+                disallow: ["/admin", "/public", "/static", "/page-data", "/?*"],
               },
             ],
             host: siteUrl,
-            sitemap: `${siteUrl}/sitemap.xml`,
+            sitemap: `${siteUrl}/sitemap/sitemap-index.xml`,
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
