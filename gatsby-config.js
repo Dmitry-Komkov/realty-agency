@@ -2,6 +2,15 @@ require("dotenv").config({
   path: `.env`,
 });
 
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://favorit-chekhov.ru',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+
 module.exports = {
   siteMetadata: {
     title: `Агенство недвижимости "ФАВОРИТ" - Чехов`,
@@ -71,6 +80,76 @@ module.exports = {
         afterBody: true,
         defer: true,
         useCDN: true,
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        excludes: [
+          '/404/',
+          '/404.html',
+          '/dev-404-page/',
+        ],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+        }`,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.nodes.map(node => {
+            return {
+              url: `${site.siteMetadata.siteUrl}${node.path}`,
+              changefreq: `daily`,
+              priority: 0.9,
+            }
+          })
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [
+              {
+                userAgent: "*",
+                allow: "/",
+                disalow: ["/admin", "/public", "/static", "/page-data", "/?*"],
+              },
+              {
+                userAgent: "Googlebot",
+                allow: "/",
+                disalow: ["/admin", "/public", "/static", "/page-data", "/?*"],
+              },
+              {
+                userAgent: "Yandex",
+                allow: "/",
+                disalow: ["/admin", "/public", "/static", "/page-data", "/?*"],
+              },
+            ],
+            host: siteUrl,
+            sitemap: `${siteUrl}/sitemap.xml`,
+          },
+          'branch-deploy': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          },
+          'deploy-preview': {
+            policy: [{ userAgent: '*', disallow: ['/'] }],
+            sitemap: null,
+            host: null
+          }
+        }
       }
     },
     {
