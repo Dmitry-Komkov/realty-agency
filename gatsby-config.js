@@ -63,6 +63,17 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-yandex-metrika`,
+      options: {
+        trackingId: 88597642,
+        webvisor: true,
+        trackHash: true,
+        afterBody: true,
+        defer: true,
+        useCDN: true,
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
