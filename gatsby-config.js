@@ -127,17 +127,17 @@ module.exports = {
             policy: [
               {
                 userAgent: "*",
-                allow: "/",
+                allow: ["/", "/*"],
                 disallow: ["/admin", "/public", "/static", "/page-data", "/?*"],
               },
               {
                 userAgent: "Googlebot",
-                allow: "/",
+                allow: ["/", "/*"],
                 disallow: ["/admin", "/public", "/static", "/page-data", "/?*"],
               },
               {
                 userAgent: "Yandex",
-                allow: "/",
+                allow: ["/", "/*"],
                 disallow: ["/admin", "/public", "/static", "/page-data", "/?*"],
               },
             ],
