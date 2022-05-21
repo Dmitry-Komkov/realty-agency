@@ -5,7 +5,6 @@ import tw from 'twin.macro'
 import Container from '../../elements/Container'
 import Menu from '../navigation/Menu'
 import Typography from '../../elements/Typography'
-import Button from '../../elements/Button'
 import InstagramLogo from '../../../assets/icons/instagram-logo.com.svg'
 
 const Wrapper = tw.footer`bg-primaryDark text-white py-6 text-sm lg:text-base`
@@ -61,12 +60,13 @@ const Footer = () => {
           phone
           mail
           address
+          WhatsApp
         }
       }
     }
   `)
 
-  const {phone, mail, address} = data.allStrapiGeneral.nodes[0]
+  const {phone, mail, address, WhatsApp} = data.allStrapiGeneral.nodes[0]
 
   const extraLinks = [
     {
@@ -103,7 +103,14 @@ const Footer = () => {
           </InfoBox>
           <ButtonsContainer>
             <ButtonBox>
-              <Button color="secondary" tw="text-sm lg:text-lg">Написать в WhatsApp</Button>
+              <a
+                tw="text-sm lg:text-lg bg-secondary text-white border-secondary hover:bg-secondaryDarker hover:border-secondaryDarker rounded-lg transition duration-300 ease-in-out px-6 py-1.5"
+                href={`https://wa.me/${WhatsApp}`}
+                target="_blank"
+                rel="noreferrer nofollow"
+              >
+                Написать в WhatsApp
+              </a>
             </ButtonBox>
             <SocialsBox>
               <a href="#!" target="_blank" rel="noopener noreferrer">

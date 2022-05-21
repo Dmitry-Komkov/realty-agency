@@ -19,10 +19,10 @@ const buttonVariantsType = {
 
 const Button = styled.button(({color, size, type, ...other}) => [
   tw`rounded-lg transition duration-300 ease-in-out`,
-  {...other},
   buttonVariantsColor[color],
   buttonVariantsSize[size],
   buttonVariantsType[type],
+  {...other},
 ])
 
 Button.defaultProps = {

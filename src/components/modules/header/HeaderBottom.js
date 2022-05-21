@@ -1,7 +1,7 @@
 import React from 'react'
 import tw, { styled } from 'twin.macro';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import Button from '../../elements/Button'
 import Container from '../../elements/Container';
 import Burger from '../../elements/Burger';
 import MainNav from './MainNav';
@@ -26,6 +26,18 @@ const ButtonContainer = styled.div(() => [
 
 const HeaderBottom = () => {
 
+  const data = useStaticQuery(graphql`
+    query SiteDataHeaderBot {
+      allStrapiGeneral {
+        nodes {
+          WhatsApp
+        }
+      }
+    }
+  `)
+
+  const { WhatsApp } = data.allStrapiGeneral.nodes[0]
+
   return (
     <Wrapper>
       <Container>
@@ -35,7 +47,14 @@ const HeaderBottom = () => {
             <MainNav />
           </NavBox>
           <ButtonContainer>
-            <Button color="secondary" >Мы в WhatsApp</Button>
+            <a
+              tw="text-sm lg:text-lg bg-secondary text-white border-secondary hover:bg-secondaryDarker hover:border-secondaryDarker rounded-lg transition duration-300 ease-in-out px-6 py-1.5"
+              href={`https://wa.me/${WhatsApp}`}
+              target="_blank"
+              rel="noreferrer nofollow"
+            >
+              Написать в WhatsApp
+            </a>
           </ButtonContainer>
         </Box>
       </Container>
