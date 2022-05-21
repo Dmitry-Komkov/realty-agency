@@ -4,6 +4,8 @@ import { StaticImage } from 'gatsby-plugin-image';
 import tw, { styled, css } from 'twin.macro';
 import Button from '../elements/Button';
 import Typography from '../elements/Typography';
+import {useDispatch} from "react-redux";
+import {showModal} from "../../redux/slices/modalSlice";
 
 const Wrapper = styled.section(() => [
   tw`grid`
@@ -27,6 +29,8 @@ const Description = tw.div`my-6 font-normal`
 const List = tw.ul`list-disc list-inside my-4`
 
 const HeroBanner = () => {
+  const dispatch = useDispatch()
+
   return (
     <Wrapper>
       <StaticImage
@@ -53,7 +57,7 @@ const HeroBanner = () => {
                 </List>
                 <p>Станьте и вы нашим довольным клиентом! Оставьте заявку, и мы обсудим все детали по телефону.</p>
               </Description>
-              <Button>Получить консультацию</Button>
+              <Button onClick={() => dispatch(showModal({title: 'Получить консультацию специалиста', hiddenField: 'Форма главный баннер'}))}>Получить консультацию</Button>
             </Col>
           </Content>
         </Container>

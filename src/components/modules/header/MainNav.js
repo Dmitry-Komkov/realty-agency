@@ -4,24 +4,12 @@ import tw, { styled, css } from 'twin.macro';
 import { nanoid } from 'nanoid'
 import { useDispatch, useSelector } from 'react-redux'
 import { showMenu } from '../../../redux/slices/headerMenuSlice'
+import CloseButton from "../../elements/CloseButton";
 
 const Box = styled.div(({ menu }) => [
   tw`fixed z-50 bg-white transform -translate-x-full top-0 left-0 shadow py-8 px-4 w-[70vw] h-full duration-500 ease-in-out`,
   tw`lg:relative lg:translate-x-0 lg:shadow-none lg:w-auto lg:p-0 lg:bg-transparent`,
   menu && tw`translate-x-0`,
-])
-
-const CloseButton = styled.button(() => [
-  tw`w-[30px] h-[30px] absolute top-2 right-2 lg:hidden`,
-  css`
-    span {
-      ${tw`w-full h-[3px] bg-textDark absolute top-1/2 left-0 transform -translate-y-1/2 rotate-45 rounded-sm`}
-
-      &:last-child{
-        ${tw`-rotate-45`}
-      }
-    }
-  `
 ])
 
 const Nav = styled.nav(() => [
@@ -56,10 +44,7 @@ const MainNav = () => {
 
   return (
     <Box menu={state}>
-      <CloseButton type="button" onClick={() => dispatch(showMenu())}>
-        <span></span>
-        <span></span>
-      </CloseButton>
+      <CloseButton tw="lg:hidden" type="button" onClick={() => dispatch(showMenu())} />
       <Nav>
         {
           mainLinks.map(link => {

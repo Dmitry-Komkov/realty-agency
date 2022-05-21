@@ -4,6 +4,8 @@ import { nanoid } from 'nanoid'
 import tw, { styled, css } from 'twin.macro';
 import Typography from '../elements/Typography';
 import Button from '../elements/Button';
+import { useDispatch } from 'react-redux';
+import { showModal } from '../../redux/slices/modalSlice';
 
 const Wrapper = tw.div`grid grid-cols-3 gap-4`
 
@@ -19,6 +21,8 @@ const List = styled.ul(() => [
 ])
 
 const ServiceCard = ({ img, title, list }) => {
+  const dispatch = useDispatch()
+
   return (
     <Wrapper>
       {img}
@@ -31,7 +35,12 @@ const ServiceCard = ({ img, title, list }) => {
             ))
           }
         </List>
-        <Button color="secondary">Заказать услугу</Button>
+        <Button
+          color="secondary"
+          onClick={() => dispatch(showModal({title: 'Получить консультацию по услуге', hiddenField: `Форма получить услугу (${title}) недвижимости`}))}
+        >
+          Заказать услугу
+        </Button>
       </Box>
     </Wrapper>
   )

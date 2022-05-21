@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Dmitry Komkov <dmitry.komkov1423@gmail.com>",
   "dependencies": {
+    "@hookform/error-message": "^2.0.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@sendgrid/mail": "^7.6.2",
     "assert": "^2.0.0",

@@ -7,6 +7,8 @@ import SideSlides from './sliders/SideSlides';
 import Typography from '../elements/Typography';
 import Button from '../elements/Button';
 import RealtyDescription from './RealtyDescription';
+import { useDispatch } from 'react-redux';
+import { showModal } from '../../redux/slices/modalSlice';
 
 const GridBox = tw.div`
   flex flex-col-reverse gap-6
@@ -51,6 +53,7 @@ const Price = styled.span(() => [
 
 const RealtyInfo = ({info}) => {
   const { address, name, level, object_code, square, rooms, description, photos, price } = info
+  const dispatch = useDispatch()
 
   const formatPrice = (num, sep=" ") => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, sep)
@@ -98,7 +101,7 @@ const RealtyInfo = ({info}) => {
                   {formatPrice(price, ' ')}
                   <span className="rub-symbol"> &#8381;</span>
                 </Price>
-                <Button>Оставить заявку</Button>
+                <Button onClick={() => dispatch(showModal({title: 'Оставьте заявку, и мы перезвоним вам в ближайшее время.', hiddenField: `${name}. Код объекта: ${object_code}`}))}>Оставить заявку</Button>
               </PriceBox>
             </InfoContainer>
           </Info>

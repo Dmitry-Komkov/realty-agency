@@ -8,10 +8,20 @@ const customStyles = css`
   }
 `
 
-const GlobalStyles = () => (
+const customStylesModalOpen = css`
+  html {
+    ${tw`text-textDark`}
+  }
+  
+  body {
+    overflow: hidden;
+  }
+`
+
+const GlobalStyles = ({state}) => (
   <>
     <BaseStyles />
-    <Global styles={customStyles} />
+    <Global styles={state ? customStylesModalOpen : customStyles} />
   </>
 )
 

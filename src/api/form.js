@@ -2,7 +2,8 @@ import MailService from "@sendgrid/mail"
 
 export default async function formHandler(req, res) {
   MailService.setApiKey(process.env.SENDGRID_API_KEY)
-  const payload = JSON.parse(JSON.stringify(req.body))
+  // const payload = JSON.parse(JSON.stringify(req.body))
+  const payload = req.body
 
   const body = Object.keys(payload).map((k) => {
     return `${k}: ${payload[k]}`
@@ -21,12 +22,10 @@ export default async function formHandler(req, res) {
   try {
     await MailService.send(msg)
 
-    res.status(200)
-    res.json("Заявка успешно отправлена.")
+    res.status(200).json("Заявка успешно отправлена.")
   } catch(e) {
     const statusCode = typeof e.code === 'number' ? e.code : 500;
 
-    res.status(statusCode)
-    res.json(e.message)
+    res.status(statusCode).json(e.message)
   }
 }

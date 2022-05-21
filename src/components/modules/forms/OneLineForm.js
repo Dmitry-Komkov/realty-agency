@@ -39,41 +39,40 @@ const OneLineForm = () => {
   const [submittedData, setSubmittedData] = useState({});
 
   const { control, handleSubmit, reset } = useForm();
-
-  const onSubmit = async (data, e) => {
+  
+  const onSubmit = async data => {
     setSubmittedData(data)
-
     const body = JSON.stringify(data)
 
-    try {
-      const response = await window
-        .fetch(endpoints.form, {
-          method: `POST`,
-          headers: {
-            "content-type": "application/json",
-          },
-          body
-        })
-        .then(res => {
-          if (res.ok) {
-            reset()
-
-            setFormState({
-              successForm: true,
-              errorForm: false,
-            })
-          } else {
-            reset()
-
-            setFormState({
-              successForm: false,
-              errorForm: true,
-            })
-          }
-        })
-    } catch(e) {
-      console.log('Ошибка...', e)
+    const options = {
+      method: 'post',
+      headers: {
+        "content-type": "application/json",
+      },
+      body
     }
+
+    await window
+      .fetch(endpoints.form, options)
+      .then(res => {
+        console.log(res)
+        if (res.ok) {
+          reset()
+
+          setFormState({
+            successForm: true,
+            errorForm: false,
+          })
+        } else {
+          reset()
+
+          setFormState({
+            successForm: false,
+            errorForm: true,
+          })
+        }
+      })
+      .catch(e => console.warn('Произошла ошибка при отправке формы... ', e))
   }
 
   return (
@@ -108,7 +107,7 @@ const OneLineForm = () => {
       </FormControl>
     </StyledForm>
     { formState.successForm && <FormMessageBox state="success"><Typography tw="text-white">Ваша заявка успешно отправлена</Typography></FormMessageBox> }
-    { formState.errorForm && <FormMessageBox state="error"><Typography>Error</Typography></FormMessageBox> }
+    { formState.errorForm && <FormMessageBox state="error"><Typography>Произошла ошибка при отправке формы</Typography></FormMessageBox> }
     </>
   )
 }
