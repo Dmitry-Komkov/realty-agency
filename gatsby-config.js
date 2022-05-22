@@ -57,7 +57,7 @@ module.exports = {
           `categories`,
           `realties`
         ],
-        singleTypes: [`general`],
+        singleTypes: [`general`, `privacy-policy`],
         queryLimit: 1000,
       },
     },

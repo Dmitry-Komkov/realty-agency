@@ -38,11 +38,13 @@ const OneLineForm = () => {
 
   const [submittedData, setSubmittedData] = useState({});
 
-  const { control, handleSubmit, reset } = useForm();
+  const { control, handleSubmit, reset, register } = useForm();
   
   const onSubmit = async data => {
     setSubmittedData(data)
     const body = JSON.stringify(data)
+
+    console.log(data)
 
     const options = {
       method: 'post',
@@ -78,6 +80,7 @@ const OneLineForm = () => {
   return (
     <>
     <StyledForm onSubmit={handleSubmit(onSubmit)}>
+      <input type="hidden" defaultValue="Заявка на консультацию" {...register("Место формы")} />
       <FormControl>
         <Controller
           render={({ field }) => {

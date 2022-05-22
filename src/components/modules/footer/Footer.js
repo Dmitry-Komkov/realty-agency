@@ -121,7 +121,7 @@ const Footer = () => {
         </FooterMiddle>
         <FooterBottom>
           <PolicyBox>
-            <StyledLink to="#!">Политика конфиденциальности</StyledLink>
+            <StyledLink to="/privacy">Политика конфиденциальности</StyledLink>
           </PolicyBox>
           <DevelopedBox>
             <span>Сайт разработан: </span>
