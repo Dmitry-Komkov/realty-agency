@@ -1,6 +1,7 @@
 import React from 'react'
 import tw from 'twin.macro';
 import Container from '../elements/Container';
+import RichText from '../elements/RichText';
 import Section from '../elements/Section';
 import Typography from '../elements/Typography';
 
@@ -13,7 +14,7 @@ const RealtyDescription = ({description}) => {
       <Container>
         <DescriptionBox>
           <Typography as="h3" variant="h3" tw="uppercase mb-4">Описание объекта</Typography>
-          <Typography>{description}</Typography>
+          <RichText content={description} />
         </DescriptionBox>
       </Container>
     </StyledSection>
