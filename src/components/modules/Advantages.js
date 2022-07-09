@@ -16,22 +16,22 @@ const advantagesData = [
   {
     id: nanoid(),
     title: 'Безопасная сделка',
-    text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+    text: 'Наши юристы заключают с каждым клиентом официальный договор, который гарантирует соблюдение всех обязательств и договоренностей.'
   },
   {
     id: nanoid(),
     title: 'Полное сопровождение',
-    text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+    text: 'Полное сопровождение сделки от внесения предоплаты до передачи ключей, юридическая проверка чистоты объекта, организация способа расчетов.'
   },
   {
     id: nanoid(),
     title: 'Проверенные объекты',
-    text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+    text: 'Мы тщательно проверяем каждый продаваемый и покупаемый нами объект, чтобы обеспечить максимально безопасную и прозрачную сделку.'
   },
   {
     id: nanoid(),
     title: 'Команда профессионалов',
-    text: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.'
+    text: 'В нашей команде работают только высококвалифицированные специалисты с опытом работы более 10 лет'
   },
 ]
 
@@ -92,7 +92,7 @@ const Advantages = () => {
             advantagesData.map((item, idx) => {
               const imgData = getImage(icons.edges[idx].node)
               const image = <GatsbyImage image={imgData} alt={item.title} />
-              
+
               return (
                 <Advantage key={item.id} image={image} title={item.title} text={item.text} />
               )
