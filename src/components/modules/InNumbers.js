@@ -13,7 +13,8 @@ const InNumbers = ({ stats }) => {
           return (
             <div key={stat.id}>
               <Num>{stat.num}</Num>
-              <p>{stat.desc}</p>
+              <p tw="font-semibold">{stat.desc}</p>
+              <p tw="mt-2">{stat.desc2}</p>
             </div>
           )
         })

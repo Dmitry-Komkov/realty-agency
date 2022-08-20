@@ -36,15 +36,10 @@ const OneLineForm = () => {
     errorForm: false
   });
 
-  const [submittedData, setSubmittedData] = useState({});
-
   const { control, handleSubmit, reset, register } = useForm();
-  
-  const onSubmit = async data => {
-    setSubmittedData(data)
-    const body = JSON.stringify(data)
 
-    console.log(data)
+  const onSubmit = async data => {
+    const body = JSON.stringify(data)
 
     const options = {
       method: 'post',

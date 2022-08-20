@@ -1,20 +1,20 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { nanoid } from 'nanoid';
 import tw from 'twin.macro';
 import Container from '../elements/Container';
 import Section from '../elements/Section';
 import Typography from '../elements/Typography';
 import ServiceCard from './ServiceCard';
+import PromoCard from "./PromoCard";
 
 const Cards = tw.div`
   pt-10 flex flex-col gap-8
-  lg:pt-14 lg:grid lg:grid-cols-2
+  md:(grid grid-cols-2)
+  xl:(pt-14 grid-cols-3)
 `
 
 const list1 = [
-  'Поможем вам продать квартиру, комнату или загородную недвижимость',
+  'Продать квартиру, комнату, загородную недвижимость',
   'Помощь в обмене квартир',
   'Сдать квартиру, комнату, дом, дачу, коттедж',
   'Оценка стоимости недвижимости',
@@ -40,80 +40,57 @@ const list4 = [
   'Представление интересов в разных инстанциях',
 ]
 
-const Services = () => {
+const list5 = [
+  'Материнский капитал',
+  'Сделки участием несовершеннолетних',
+  'Недвижимость с обременением',
+  'Сделки с недофинансированием',
+  'Сделки с завышением цены объекта'
+]
 
-  const {images} = useStaticQuery(
-    graphql`
-      query ServicesImagesQuery {
-        images: allFile(filter: {relativeDirectory: {eq: "content/services"}}) {
-          edges {
-            node {
-              id
-              childImageSharp {
-                gatsbyImageData (
-                  width: 216
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
-            }
-          }
-        }
-      }
-    `
-  )
+const Services = () => {
 
   const cardsData = [
     {
-      image: '',
       title: 'Владельцам',
       list: list1
     },
     {
-      image: '',
       title: 'Покупателям',
       list: list2
     },
     {
-      image: '',
       title: 'Арендаторам',
       list: list3
     },
     {
-      image: '',
       title: 'Сопровождение сделок',
       list: list4
     },
+    {
+      title: 'Сложные сделки с недвижимостью',
+      list: list5
+    },
   ]
 
-  images.edges.forEach((image, idx) => {
-    const data = getImage(image.node)
-    cardsData[idx].image =
-    <GatsbyImage
-      key={image.node.id}
-      image={data}
-      alt={cardsData[idx].title}
-    />
-  })
-
   return (
-    <Section id="services">
+    <Section id="services2" tw="bg-grayLightest">
       <Container>
         <div>
           <Typography as="h2" variant="h2" align="center" tw="mb-4 uppercase">Наши услуги</Typography>
-          <Typography align="center">Мы знаем своё дело. Обращаясь к нам, вы доверяетесь профессионалам.</Typography>
+          <Typography align="center">Мы знаем своё дело. Обращаясь к нам, вы доверяетесь профессионалам</Typography>
         </div>
         <Cards>
           {
             cardsData.map(card => (
               <ServiceCard
                 key={nanoid()}
-                img={card.image}
                 title={card.title}
                 list={card.list}
               />
             ))
           }
+          <PromoCard link="/realty" text="Посмотреть каталог недвижимости" />
         </Cards>
       </Container>
     </Section>

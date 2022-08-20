@@ -6,6 +6,7 @@ import Button from '../elements/Button';
 import Typography from '../elements/Typography';
 import {useDispatch} from "react-redux";
 import {showModal} from "../../redux/slices/modalSlice";
+import {Link} from "gatsby";
 
 const Wrapper = styled.section(() => [
   tw`grid`
@@ -26,7 +27,9 @@ const Col = tw.div`py-6`
 
 const Description = tw.div`my-6 font-normal`
 
-const List = tw.ul`list-disc list-inside my-4`
+const ButtonsGroup = tw.div``
+
+const StyledLink = tw(Link)`transition duration-300 ease-in-out ml-4 px-6 py-1.5 bg-white rounded-lg border-2 border-secondary hover:bg-secondary hover:text-white`
 
 const HeroBanner = () => {
   const dispatch = useDispatch()
@@ -46,18 +49,14 @@ const HeroBanner = () => {
         <Container>
           <Content>
             <Col>
-              <Typography as="h2" tw="uppercase font-medium text-xl md:text-2xl">Команда профессионалов в сфере недвижимости</Typography>
+              <Typography as="h2" tw="uppercase font-medium text-xl md:text-2xl">Агентство недвижимости в Чехове</Typography>
               <Description>
-                <p>Более 12 лет помогаем людям совершать сделки с недвижимостью.</p>
-                <List>
-                  <li>Тщательный подбор недвижимости</li>
-                  <li>Честная оценка стоимости</li>
-                  <li>Юридическое сопровождение сделки</li>
-                  <li>Берем все на себя. Экономим ваше время</li>
-                </List>
-                <p>Станьте и вы нашим довольным клиентом! Оставьте заявку, и мы обсудим все детали по телефону.</p>
+                <Typography as="p" tw="text-lg">Решим все ваши вопросы с недвижимостью. Быстро, профессионально</Typography>
               </Description>
-              <Button onClick={() => dispatch(showModal({title: 'Получить консультацию специалиста', hiddenField: 'Форма главный баннер'}))}>Получить консультацию</Button>
+              <ButtonsGroup>
+                <Button onClick={() => dispatch(showModal({title: 'Получить консультацию специалиста', hiddenField: 'Форма главный баннер'}))}>Получить консультацию</Button>
+                <StyledLink to={'#offers'}>Перейти в каталог</StyledLink>
+              </ButtonsGroup>
             </Col>
           </Content>
         </Container>

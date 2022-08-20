@@ -20,10 +20,22 @@ const Title = styled.div(() => [
   `
 ])
 
+const IconBox = styled.div(() => [
+  tw`w-20 h-20 mx-auto p-3 rounded-full`,
+  css`
+    background: linear-gradient(126deg, rgba(0,129,254,1) 30%, rgba(0,97,187,1) 100%);
+    svg {
+      fill: white;
+    }
+  `
+])
+
 const Advantage = ({image, title, text}) => {
   return (
     <Wrapper>
-      {image}
+      <IconBox>
+        {image}
+      </IconBox>
       <Title>
         <Typography as="h3" align="center" variant="h3" tw="font-bold">{title}</Typography>
       </Title>

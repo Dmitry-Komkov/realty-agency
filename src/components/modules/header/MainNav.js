@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import tw, { styled, css } from 'twin.macro';
+import tw, { styled } from 'twin.macro';
 import { nanoid } from 'nanoid'
 import { useDispatch, useSelector } from 'react-redux'
 import { showMenu } from '../../../redux/slices/headerMenuSlice'

@@ -1,107 +1,79 @@
 import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { nanoid } from 'nanoid';
 import tw from 'twin.macro';
 import Container from '../elements/Container';
 import Section from '../elements/Section';
 import Typography from '../elements/Typography';
 import Advantage from './Advantage';
-import InNumbers from './InNumbers';
+import IconSecure from '../../assets/icons/secure.svg'
+import IconDocument from '../../assets/icons/document.svg'
+import IconRoute from '../../assets/icons/route.svg'
+import IconHandsShake from '../../assets/icons/shake-hands.svg'
+import IconCertificate from '../../assets/icons/certificate.svg'
+import IconGraphic from '../../assets/icons/graphic.svg'
 
 const Title = tw.div`mb-12 lg:mb-20`
-const Cards = tw.div`grid gap-x-4 gap-y-8 grid-cols-2 lg:grid-cols-4 lg:gap-12`
+const Cards = tw.div`
+  flex flex-wrap justify-center
+  [> div]:(w-1/2 p-4 mb-4 lg:(w-1/3) xl:(w-1/4 mb-8 p-6))
+`
 
 const advantagesData = [
   {
     id: nanoid(),
-    title: 'Безопасная сделка',
-    text: 'Наши юристы заключают с каждым клиентом официальный договор, который гарантирует соблюдение всех обязательств и договоренностей.'
+    title: 'Гарантируем безопасную сделку',
+    text: 'Наши юристы заключают с каждым клиентом официальный договор, который гарантирует соблюдение всех обязательств и договоренностей.',
+    icon: <IconSecure />
   },
   {
     id: nanoid(),
-    title: 'Полное сопровождение',
-    text: 'Полное сопровождение сделки от внесения предоплаты до передачи ключей, юридическая проверка чистоты объекта, организация способа расчетов.'
+    title: 'Проводим полное сопровождение',
+    text: 'Сопровождаем на всех этапах сделки от внесения предоплаты до передачи ключей, юридическая проверка чистоты объекта, организация способа расчетов.',
+    icon: <IconRoute />
   },
   {
     id: nanoid(),
-    title: 'Проверенные объекты',
-    text: 'Мы тщательно проверяем каждый продаваемый и покупаемый нами объект, чтобы обеспечить максимально безопасную и прозрачную сделку.'
+    title: 'Проверяем юридическую чистоту объектов недвижимости',
+    text: 'Тщательно проверяем каждый продаваемый и покупаемый нами объект, чтобы обеспечить максимально безопасную и прозрачную сделку.',
+    icon: <IconDocument />
   },
   {
     id: nanoid(),
-    title: 'Команда профессионалов',
-    text: 'В нашей команде работают только высококвалифицированные специалисты с опытом работы более 10 лет'
-  },
-]
-
-const stats = [
-  {
-    id: nanoid(),
-    num: '> 10 лет',
-    desc: 'на рынке недвижимости'
+    title: 'Помогаем с выбором',
+    text: 'Тщательно подбираем недвижимость с учетом ваших пожеланий.',
+    icon: <IconHandsShake />
   },
   {
     id: nanoid(),
-    num: '> 300',
-    desc: 'довольных клиентов'
+    title: 'Предоставляем гарантийный сертификат',
+    text: 'В случае проблем  компенсируем ваши потери по сделке из собственного фонда.',
+    icon: <IconCertificate />
   },
   {
     id: nanoid(),
-    num: '> 20',
-    desc: 'профессионалов в штате'
-  },
-  {
-    id: nanoid(),
-    num: '> 50',
-    desc: 'закрытых сделок в месяц'
+    title: 'Предлагаем эффективное оформление заявки на ипотеку',
+    text: 'Поможем получить ипотечный кредит на льготных условиях. С нами шанс на одобрение ипотеки на 25% выше!',
+    icon: <IconGraphic />
   },
 ]
 
 const Advantages = () => {
-  const {icons} = useStaticQuery(
-    graphql`
-      query AdvantagesIconsQuery {
-        icons: allFile(filter: {relativeDirectory: {eq: "content/icons"}}) {
-          edges {
-            node {
-              id
-              childImageSharp {
-                gatsbyImageData (
-                  width: 92
-                  placeholder: BLURRED
-                  quality: 100
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
-            }
-          }
-        }
-      }
-    `
-  )
 
   return (
     <Section>
       <Container>
         <Title>
-          <Typography as="h2" variant="h2" align="center" tw="uppercase">Почему нам доверяют?</Typography>
+          <Typography as="h2" variant="h2" align="center" tw="uppercase">Наши преимущества</Typography>
         </Title>
         <Cards>
           {
-            advantagesData.map((item, idx) => {
-              const imgData = getImage(icons.edges[idx].node)
-              const image = <GatsbyImage image={imgData} alt={item.title} />
-
+            advantagesData.map((item) => {
               return (
-                <Advantage key={item.id} image={image} title={item.title} text={item.text} />
+                <Advantage key={item.id} image={item.icon} title={item.title} text={item.text} />
               )
             })
           }
         </Cards>
-        <div tw="mt-12 lg:mt-20">
-          <InNumbers stats={stats} />
-        </div>
       </Container>
     </Section>
   )

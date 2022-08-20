@@ -37,7 +37,7 @@ const Offers = () => {
   `)
 
   return (
-    <Section>
+    <Section id="offers">
       <Container>
         <div>
           <Typography as="h2" variant="h2" align="center" tw="mb-4 uppercase">Лучшие предложения дня &#128293;&#128293;&#128293;</Typography>
