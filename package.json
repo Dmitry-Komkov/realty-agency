@@ -4,6 +4,9 @@
   "description": "A Realty Agency website developed with Gatsby, Tailwind CSS and Emotion",
   "version": "0.1.0",
   "author": "Dmitry Komkov <dmitry.komkov1423@gmail.com>",
+  "engines": {
+    "node": ">= 16.0.0 <17.0.0"
+  },
   "dependencies": {
     "@hookform/error-message": "^2.0.0",
     "@reduxjs/toolkit": "^1.8.1",
