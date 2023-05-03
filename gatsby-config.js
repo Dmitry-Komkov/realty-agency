@@ -1,15 +1,15 @@
 require("dotenv").config({
   path: `.env`,
-});
+})
 
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://favorit-chekhov.ru',
+  URL: NETLIFY_SITE_URL = "https://favorit-chekhov.ru",
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV
-} = process.env;
-const isNetlifyProduction = NETLIFY_ENV === 'production';
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === "production"
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
@@ -23,15 +23,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
-      resolve: `gatsby-plugin-emotion`
+      resolve: `gatsby-plugin-emotion`,
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ['Roboto', 'Roboto:100,300,500,700,900']
-        }
-      }
+          families: ["Roboto", "Roboto:100,300,500,700,900"],
+        },
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -44,19 +44,15 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /assets/
-        }
-      }
+          include: /assets/,
+        },
+      },
     },
     {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: process.env.STRAPI_URL || `http://localhost:1337`,
-        collectionTypes: [
-          `experts`,
-          `categories`,
-          `realties`
-        ],
+        collectionTypes: [`experts`, `categories`, `realties`],
         singleTypes: [`general`, `privacy-policy`],
         queryLimit: 1000,
       },
@@ -80,16 +76,12 @@ module.exports = {
         afterBody: true,
         defer: true,
         useCDN: true,
-      }
+      },
     },
     {
-      resolve: 'gatsby-plugin-sitemap',
+      resolve: "gatsby-plugin-sitemap",
       options: {
-        excludes: [
-          '/404/',
-          '/404.html',
-          '/dev-404-page/',
-        ],
+        excludes: ["/404/", "/404.html", "/dev-404-page/"],
         query: `
           {
             site {
@@ -104,22 +96,22 @@ module.exports = {
             }
         }`,
         resolveSiteUrl: () => siteUrl,
-        resolvePages: ({allSitePage: {nodes: allPages}}) => {
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
           return allPages.map(page => {
-            return {...page}
+            return { ...page }
           })
         },
-        serialize: ({path}) => {
+        serialize: ({ path }) => {
           return {
             url: path,
             changefreq: `daily`,
             priority: 0.9,
           }
-        }
+        },
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
         resolveEnv: () => NETLIFY_ENV,
         env: {
@@ -144,18 +136,18 @@ module.exports = {
             host: siteUrl,
             sitemap: `${siteUrl}/sitemap/sitemap-index.xml`,
           },
-          'branch-deploy': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+          "branch-deploy": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
             sitemap: null,
-            host: null
+            host: null,
           },
-          'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
+          "deploy-preview": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
             sitemap: null,
-            host: null
-          }
-        }
-      }
+            host: null,
+          },
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,

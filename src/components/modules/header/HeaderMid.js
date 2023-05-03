@@ -1,17 +1,15 @@
-import React from 'react'
-import { useStaticQuery, graphql, Link } from 'gatsby';
-import tw, { styled, css } from 'twin.macro'
+import { Link, graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Container from '../../elements/Container'
+import React from "react"
+import tw, { css, styled } from "twin.macro"
+import Container from "../../elements/Container"
 
 const Box = styled.div(() => [
   tw`flex items-center justify-between gap-x-3
-  `
+  `,
 ])
 
-const ImageBox = styled.div(() => [
-  tw`max-w-[120px] lg:max-w-full`
-])
+const ImageBox = styled.div(() => [tw`max-w-[120px] lg:max-w-[300px]`])
 
 const Contacts = styled.div(() => [
   tw`
@@ -26,7 +24,7 @@ const Contacts = styled.div(() => [
     a {
       ${tw`transition duration-300 ease-in-out hover:text-primaryDark`}
     }
-  `
+  `,
 ])
 
 const HeaderMid = () => {
@@ -40,7 +38,7 @@ const HeaderMid = () => {
     }
   `)
 
-  const {phone} = data.allStrapiGeneral.nodes[0]
+  const { phone } = data.allStrapiGeneral.nodes[0]
 
   return (
     <div tw="bg-primary py-3 text-white lg:py-5">
@@ -48,7 +46,11 @@ const HeaderMid = () => {
         <Box>
           <ImageBox>
             <Link to="/">
-              <StaticImage src="../../../assets/images/logo.png" alt="АН Фаворит" />
+              <StaticImage
+                src="../../../assets/images/logo-white-new.png"
+                alt="АН Фаворит"
+                placeholder="blurred"
+              />
             </Link>
           </ImageBox>
           <Contacts>
