@@ -1,13 +1,13 @@
-import React from "react"
-import tw from 'twin.macro';
-import Seo from "../seo"
-import Default from "../layouts/Default"
-import RealtyList from "../modules/RealtyList"
 import { graphql } from "gatsby"
-import Container from "../elements/Container";
-import Typography from "../elements/Typography";
-import Section from "../elements/Section";
-import FreeConsult from "../modules/FreeConsult";
+import React from "react"
+import tw from "twin.macro"
+import Container from "../elements/Container"
+import Section from "../elements/Section"
+import Typography from "../elements/Typography"
+import Default from "../layouts/Default"
+import FreeConsult from "../modules/FreeConsult"
+import RealtyList from "../modules/RealtyList"
+import Seo from "../seo"
 
 const Wrapper = tw.div`py-8`
 
@@ -19,28 +19,31 @@ const CategoryPage = ({ data }) => {
   let name
 
   switch (catName) {
-    case 'квартиры':
-      name = 'квартир'
+    case "квартиры":
+      name = "квартир"
       break
-    case 'дома':
-      name = 'домов'
+    case "дома":
+      name = "домов"
       break
-    case 'участки':
-      name = 'участков'
+    case "участки":
+      name = "участков"
       break
-    case 'дачи':
-      name = 'дач'
+    case "дачи":
+      name = "дач"
       break
     default:
       name = catName
       break
   }
 
-  const description = `Покупка ${name} в Чехове и Чеховской районе. Выгодные условия сделки и полное юридическое сопровождение. Опытные эксперты.`
+  const description = `Покупка ${name} в Чехове и Чеховской районе. Помощь в получении ипотеки. Выгодные условия сделки и полное юридическое сопровождение. Опытные эксперты.`
 
   return (
     <Default>
-      <Seo title={`Каталог ${name} в Чехове и Чеховской районе`} description={description} />
+      <Seo
+        title={`Каталог ${name} в Чехове и Чеховской районе`}
+        description={description}
+      />
       <main>
         <Wrapper>
           <Container>
@@ -68,7 +71,7 @@ export const PageQuery = graphql`
       slug
       strapiId
     }
-    realty: allStrapiRealties(filter: {category: {slug: {eq: $slug}}}) {
+    realty: allStrapiRealties(filter: { category: { slug: { eq: $slug } } }) {
       nodes {
         address
         id

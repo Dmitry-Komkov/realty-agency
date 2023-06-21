@@ -1,9 +1,17 @@
-import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import PropTypes from "prop-types"
+import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
 
-function Seo({ description, lang, meta, image: metaImage, title, pathname, keywords }) {
+function Seo({
+  description,
+  lang,
+  meta,
+  image: metaImage,
+  title,
+  pathname,
+  keywords,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -36,11 +44,11 @@ function Seo({ description, lang, meta, image: metaImage, title, pathname, keywo
       link={
         canonical
           ? [
-            {
-              rel: "canonical",
-              href: canonical,
-            },
-          ]
+              {
+                rel: "canonical",
+                href: canonical,
+              },
+            ]
           : []
       }
       meta={[
@@ -88,29 +96,29 @@ function Seo({ description, lang, meta, image: metaImage, title, pathname, keywo
         .concat(
           metaImage
             ? [
-              {
-                property: "og:image",
-                content: image,
-              },
-              {
-                property: "og:image:width",
-                content: metaImage.width,
-              },
-              {
-                property: "og:image:height",
-                content: metaImage.height,
-              },
-              {
-                name: "twitter:card",
-                content: "summary_large_image",
-              },
-            ]
+                {
+                  property: "og:image",
+                  content: image,
+                },
+                {
+                  property: "og:image:width",
+                  content: metaImage.width,
+                },
+                {
+                  property: "og:image:height",
+                  content: metaImage.height,
+                },
+                {
+                  name: "twitter:card",
+                  content: "summary_large_image",
+                },
+              ]
             : [
-              {
-                name: "twitter:card",
-                content: "summary",
-              },
-            ]
+                {
+                  name: "twitter:card",
+                  content: "summary",
+                },
+              ]
         )
         .concat(meta)}
     />
@@ -120,7 +128,7 @@ Seo.defaultProps = {
   lang: `ru`,
   meta: [],
   description: ``,
-  keywords: ``
+  keywords: ``,
 }
 Seo.propTypes = {
   description: PropTypes.string,
