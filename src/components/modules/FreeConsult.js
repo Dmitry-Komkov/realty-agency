@@ -25,7 +25,7 @@ const FreeConsult = () => {
     <Section>
       <Container>
         <div>
-          <Typography align="center" as="h2" tw="uppercase mb-4 text-xl font-medium lg:text-4xl">Бесплатная консультация специалиста</Typography>
+          <Typography align="center" as="h2" tw="uppercase mb-4 text-xl font-medium lg:text-4xl">Бесплатная консультация с риэлтором</Typography>
           <Typography align="center" as="p" variant="p">Оставьте заявку на консультацию или звоните по телефону: <a href={`tel:${phone}`}>{phone}</a></Typography>
         </div>
         <FormContainer>
